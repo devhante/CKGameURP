@@ -1,0 +1,54 @@
+{
+    "name": "CKGameURP",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "54b1557d-e76e-49ff-976a-e4a90db43928",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "d0378c6e-5ffb-4228-82c8-a4b6b2e8fae3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "f5025946-03ab-42dc-8cf2-577724e35360",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4f4d84ae-2bfe-4738-a3b4-31512c662f77",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50d8c04d-69a7-44fd-9ac2-e0b6a02dfc47",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
