@@ -5,21 +5,25 @@ public class ClickHandler : MonoBehaviour
 {
 	[SerializeField] private UnityEvent _clicked;
 
-	private BoxCollider2D _collider;
+	private Collider2D _collider;
 	private MouseInputProvider _mouse;
+	private SpriteRenderer _sr;
 
 	private void Awake()
 	{
-		_collider = GetComponent<BoxCollider2D>();
+		_collider = GetComponent<Collider2D>();
 		_mouse = FindObjectOfType<MouseInputProvider>();
 		_mouse.Clicked += MouseOnClicked;
+		_sr = GetComponent<SpriteRenderer>();
 	}   
 
 	private void MouseOnClicked()
 	{
 		if (_collider.bounds.Contains(_mouse.WorldPosition))
 		{
-			_clicked?.Invoke();
+			FindObjectOfType<ClickManager>().eventList.Add(_clicked);
+			FindObjectOfType<ClickManager>().orderList.Add(_sr.sortingOrder);
+			// _clicked?.Invoke();
 		}
 	}
 }
