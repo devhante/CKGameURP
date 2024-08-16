@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickableItem : Item
+public class CabinetItem : Item
 {
     public void OnClick()
     {
-        IsHint = false;
-        Debug.Log(gameObject.name + " Clicked");
+        GameManager.instance.ActiveSceneIndex = 1;
     }
 }

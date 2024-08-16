@@ -7,4 +7,5 @@ public class ItemData : ScriptableObject
 {
     public Sprite ItemSprite;
     public Sprite ToggleItemSprite;
+    public Sprite HintItemSprite;
 }

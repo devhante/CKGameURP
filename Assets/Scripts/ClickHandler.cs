@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class ClickHandler : MonoBehaviour
 {
@@ -19,11 +20,14 @@ public class ClickHandler : MonoBehaviour
 
 	private void MouseOnClicked()
 	{
-		if (_collider.bounds.Contains(_mouse.WorldPosition))
+		if (!EventSystem.current.IsPointerOverGameObject())
 		{
-			FindObjectOfType<ClickManager>().eventList.Add(_clicked);
-			FindObjectOfType<ClickManager>().orderList.Add(_sr.sortingOrder);
-			// _clicked?.Invoke();
+			if (_collider.bounds.Contains(_mouse.WorldPosition))
+			{
+				FindObjectOfType<ClickManager>().eventList.Add(_clicked);
+				FindObjectOfType<ClickManager>().orderList.Add(_sr.sortingOrder);
+				// _clicked?.Invoke();
+			}
 		}
 	}
 }

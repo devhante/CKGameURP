@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HintButton : MonoBehaviour
+public class ItemBookButton : MonoBehaviour
 {
+    [SerializeField] private GameObject itemListUI;
+    
     private Button button;
 
     private void Awake()
@@ -16,7 +18,6 @@ public class HintButton : MonoBehaviour
 
     private void OnClickButton()
     {
-        GameManager gm = FindObjectOfType<GameManager>();
-        gm.GetRandomItem().Hint = true;
+        itemListUI.SetActive(true);
     }
 }

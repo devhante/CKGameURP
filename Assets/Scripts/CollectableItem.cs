@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class CollectableItem : Item
 {
-	[SerializeField] private ItemData itemData;
-	
 	public void OnClickItem()
 	{
-		IsHint = false;
+		Hint = false;
 		gameObject.SetActive(false);
 		FindObjectOfType<Inventory>().AddItem(itemData);
 	}
