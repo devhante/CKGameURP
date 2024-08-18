@@ -8,14 +8,14 @@ public class Item : MonoBehaviour
 {
     public bool Hint { get; set; }
 
-    [SerializeField] protected ItemData itemData;
+    public ItemData itemData;
     
-    private Image image;
+    private SpriteRenderer sr;
     
     private void Awake()
     {
         Hint = false;
-        image = GetComponent<Image>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -23,9 +23,11 @@ public class Item : MonoBehaviour
         if (itemData != null && itemData.HintItemSprite != null)
         {
             if (Hint == false)
-                image.sprite = itemData.ItemSprite;
+            {
+                sr.sprite = itemData.ItemSprite;
+            }
             else
-                image.sprite = itemData.HintItemSprite;
+                sr.sprite = itemData.HintItemSprite;
         }
     }
 }

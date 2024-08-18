@@ -39,7 +39,28 @@ public class GameManager : Singleton<GameManager>
 
     public Item GetRandomItem()
     {
-        return itemList[Random.Range(0, itemList.Count)];
+        Item result;
+        while (true)
+        {
+            result = itemList[Random.Range(0, itemList.Count)];
+            if (result.itemData.HintItemSprite != null)
+                break;
+        }
+
+        return result;
+    }
+    
+    public Item GetRandomItem(Item item)
+    {
+        Item result;
+        while (true)
+        {
+            result = itemList[Random.Range(0, itemList.Count)];
+            if (result.itemData.HintItemSprite != null && result.itemData != item.itemData)
+                break;
+        }
+
+        return result;
     }
 
     private void Lightning()

@@ -30,6 +30,6 @@ public class HexPuzzleManager : MonoBehaviour
 
 	private void OnClickExitButton()
 	{
-		SceneManager.LoadScene("HexPuzzleScene");
+		SceneManager.LoadScene("MainScene");
 	}
 }

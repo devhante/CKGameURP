@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CabinetItem : Item
 {
+    [SerializeField] private ItemData crowbarItemData;
+    
     public void OnClick()
     {
-        GameManager.instance.ActiveSceneIndex = 1;
+        var inventory = FindObjectOfType<Inventory>();
+        if (inventory.ToggleIndex != -1)
+            if (inventory.GetItemDataByIndex(inventory.ToggleIndex) == crowbarItemData )
+                GameManager.instance.ActiveSceneIndex = 1;
     }
 }

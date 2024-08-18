@@ -7,14 +7,15 @@ public class Inventory : MonoBehaviour
 {
 	[SerializeField] private Cell[] cells;
 
+	public int ToggleIndex { get; set; }
+	
 	private List<ItemData> itemDataList;
 	private int startIndex;
-	private bool isToggled;
 
 	private void Start()
 	{
 		startIndex = 0;
-		isToggled = false;
+		ToggleIndex = -1;
 		itemDataList = new List<ItemData>();
 	}
 
@@ -31,11 +32,21 @@ public class Inventory : MonoBehaviour
 			{
 				cells[i].gameObject.SetActive(false);
 			}
+
+			if (i == ToggleIndex)
+				cells[i].Toggle = true;
+			else
+				cells[i].Toggle = false;
 		}
 	}
 
 	public void AddItem(ItemData data)
 	{
 		itemDataList.Add(data);
+	}
+
+	public ItemData GetItemDataByIndex(int index)
+	{
+		return cells[index].ItemData;
 	}
 }
